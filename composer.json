@@ -11,6 +11,8 @@
         "doctrine/doctrine-bundle": "^2.13",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.2",
+        "friendsofsymfony/elastica-bundle": "^6.4",
+        "friendsofsymfony/jsrouting-bundle": "^3.5",
         "knplabs/knp-paginator-bundle": "^6.5",
         "symfony/console": "7.1.*",
         "symfony/dotenv": "7.1.*",
@@ -19,6 +21,7 @@
         "symfony/framework-bundle": "7.1.*",
         "symfony/runtime": "7.1.*",
         "symfony/security-bundle": "7.1.*",
+        "symfony/stimulus-bundle": "^2.19",
         "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "7.1.*"
     },

@@ -3,7 +3,7 @@
 {% block title %}Candidate Recruitment System{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container wrapper">
         <h1>Candidate Recruitment System!</h1>
         {% set perPage = perPage is defined?perPage:'12' %}
         {{ include('search.html.twig') }}

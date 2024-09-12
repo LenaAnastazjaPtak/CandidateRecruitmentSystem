@@ -1,0 +1,12 @@
+$mainPadding: 10rem;
+$searchPadding: 0.5rem;
+
+.search {
+  padding-top: $searchPadding;
+  padding-bottom: $searchPadding;
+}
+
+.wrapper {
+  padding-top: $mainPadding;
+  padding-bottom: $mainPadding;
+}

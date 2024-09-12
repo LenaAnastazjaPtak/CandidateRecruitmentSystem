@@ -8,6 +8,12 @@ homepage:
     path: /
     controller: App\Controller\JobOfferController::all
 
+search:
+    path: /search
+    controller: App\Controller\JobOfferController::search
+    options:
+        expose: true
+
 apply_for_job:
     path: /apply/{offerId}
     controller: App\Controller\JobOfferController::apply
