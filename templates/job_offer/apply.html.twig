@@ -3,7 +3,11 @@
 {% block title %}Apply for {{ offer.title }}{% endblock %}
 
 {% block body %}
-    <div>
-        <h1>Apply for {{ offer.title }}!</h1>
+    <div class="container wrapper">
+        <div class="mb-3"><h2>Apply for {{ offer.title }}!</h2></div>
+        <div class="mb-4 lightgrey">Added on {{ offer.dateAdded | date('d-m-Y') }}</div>
+        <div class="mb-4">
+            {{ offer.description }}
+        </div>
     </div>
 {% endblock %}

@@ -17,3 +17,7 @@ search:
 apply_for_job:
     path: /apply/{offerId}
     controller: App\Controller\JobOfferController::apply
+
+admin:
+    path: /admin
+    controller: App\Controller\Admin\DashboardController::index
