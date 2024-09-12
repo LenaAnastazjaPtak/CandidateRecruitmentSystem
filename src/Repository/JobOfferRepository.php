@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\JobOffer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -14,6 +15,13 @@ class JobOfferRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, JobOffer::class);
+    }
+
+    public function paginator(): QueryBuilder
+    {
+        return
+            $this->createQueryBuilder('job_offer')
+                ->orderBy('job_offer.dateAdded', 'DESC');
     }
 
     //    /**

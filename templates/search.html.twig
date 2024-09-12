@@ -1,0 +1,68 @@
+{#<div class="desktop">#}
+{#    <div class="blog-search d-flex text-center justify-content-center p-t-16 p-b-16 m-b-32 m-r-40 m-l-40"#}
+{#         style="background-color: #F8F8F5;" {{ stimulus_controller('search') }}>#}
+{#        <div style="width: 50%;">#}
+{#            <div class="align-items-center" style="display: grid; grid-template-columns: 1fr 2fr; grid-gap: 24px;">#}
+{#                <div class="w-bold fs-11">Szukaj na blogu</div>#}
+{#                <div class="header-content--search" {{ stimulus_target('search', 'headerContentSearch') }}>#}
+{#                    <div class="header-content--search search-form-blog" {{ stimulus_target('search', 'searchForm') }}>#}
+{#                        <form action="javascript:void(0)"#}
+{#                              class="search-form-blog__form"#}
+{#                                {{ stimulus_action('search', 'submit') }}>#}
+{#                            <div class="input-group search-form-blog__input-group"#}
+{#                                 style="background-color: white; border-bottom: 2px solid #EEE;">#}
+{#                                <input type="text"#}
+{#                                       class="p-t-12 p-b-12 p-l-8 p-r-8 form-control search-form-blog__input"#}
+{#                                       placeholder="Co Ciebie interesuje?"#}
+{#                                       aria-label="Co Ciebie interesuje?"#}
+{#                                       id="search-input" checked>#}
+{#                                <div class="input-group-append">#}
+{#                                    <button class="btn search-form-blog__submit" type="submit">#}
+{#                                        <i class="alt-icon alt-icon-search"></i>#}
+{#                                    </button>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </form>#}
+{#                        <div class="quicksearch-widget" id="quicksearch-box" style="display: none;">#}
+{#                            <div class="quicksearch-message">Wpisz minimum 3 znaki</div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="mobile">#}
+{#    <div class="blog-search p-t-16 p-b-16 p-r-20 p-l-20 justify-content-center m-b-32 m-r-20 m-l-20"#}
+{#         style="background-color: #F8F8F5;"#}
+{#            {{ stimulus_controller('search') }}>#}
+{#        <div>#}
+{#            <div class="justify-content-center text-center">#}
+{#                <div class="w-bold fs-11 m-b-24">Szukaj na blogu</div>#}
+{#                <div class="header-content--search text-center">#}
+{#                    <div class="header-content--search search-form-blog">#}
+{#                        <form action="javascript:void(0)"#}
+{#                              class="search-form-blog__form"#}
+{#                                {{ stimulus_action('search', 'submit') }}>#}
+{#                            <div class="input-group search-form-blog__input-group"#}
+{#                                 style="background-color: white; border-bottom: 2px solid #EEE;">#}
+{#                                <input type="text"#}
+{#                                       class="p-t-12 p-b-12 p-l-8 p-r-8 form-control search-form-blog__input-mobile"#}
+{#                                       placeholder="Co Ciebie interesuje?"#}
+{#                                       aria-label="Co Ciebie interesuje?" id="search-input-mobile">#}
+{#                                <div class="input-group-append">#}
+{#                                    <button class="btn search-form-blog__submit" type="submit">#}
+{#                                        <i class="alt-icon alt-icon-search"></i>#}
+{#                                    </button>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </form>#}
+{#                        <div class="quicksearch-widget" id="quicksearch-box" style="display: none;">#}
+{#                            <div class="quicksearch-message">Wpisz minimum 3 znaki</div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}

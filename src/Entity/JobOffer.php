@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\JobOfferRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -34,6 +35,7 @@ class JobOffer
     public function __construct()
     {
         $this->candidates = new ArrayCollection();
+        $this->dateAdded = new DateTime();
     }
 
     public function getId(): ?int

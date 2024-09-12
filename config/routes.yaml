@@ -3,3 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+homepage:
+    path: /
+    controller: App\Controller\JobOfferController::all
+
+apply_for_job:
+    path: /apply/{offerId}
+    controller: App\Controller\JobOfferController::apply

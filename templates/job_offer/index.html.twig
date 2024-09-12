@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidate Recruitment System{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Candidate Recruitment System!</h1>
+        {% set perPage = perPage is defined?perPage:'12' %}
+        {{ include('search.html.twig') }}
+        {% if offers| length > 0 %}
+            <table class="table table-hover">
+                <tbody>
+                {% for offer in offers %}
+                    <tr>
+                        <th scope="row">
+                            {{ loop.index }}
+                        </th>
+                        <td>
+                            {{ offer.title }}</td>
+                        <td>
+                            {{ offer.description }}</td>
+                        <td>
+                            {{ offer.dateAdded | date('d-m-Y') }}</td>
+                        <td>
+                            <a href="{{ path('apply_for_job', {'offerId': offer.id }) }}">
+                                <button type="button" class="btn btn-success">Apply</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <div class="text-center list-options__pagination">
+            {{ knp_pagination_render(offers) }}
+        </div>
+    </div>
+{% endblock %}
