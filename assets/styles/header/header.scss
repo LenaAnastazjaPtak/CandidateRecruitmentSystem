@@ -1,4 +1,4 @@
-$headerPadding: 10rem;
+@import "../_variables";
 
 .header {
   padding-left: $headerPadding;
@@ -9,4 +9,21 @@ $headerPadding: 10rem;
 .header__login {
   margin-left: auto;
   text-align: right;
+}
+
+.header__home {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media (max-width: $tablet) {
+  .header {
+    padding-left: $headerPaddingMobile;
+    padding-right: $headerPaddingMobile;
+    font-size: 1.5rem;
+  }
+
+  .header__home {
+    font-size: 1.5rem;
+  }
 }

@@ -1,6 +1,6 @@
 <header>
     <div class="header pt-4 pb-4 shadow">
-        <div><a href="{{ path('homepage') }}"><h5>HOME</h5></a></div>
+        <div><a href="{{ path('homepage') }}"><div class="header__home">HOME</div></a></div>
         <div class="header__login">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <b>{{ user }}</b>  |

@@ -1,5 +1,4 @@
-$mainPadding: 5rem;
-$searchPadding: 1rem;
+@import "../_variables";
 
 .search {
   padding-top: $searchPadding;
@@ -20,4 +19,11 @@ $searchPadding: 1rem;
   min-width: 100%;
   padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+@media (max-width: $handheld) {
+  .wrapper {
+    padding-top: $mainPaddingMobile;
+    padding-bottom: $mainPaddingMobile;
+  }
 }
