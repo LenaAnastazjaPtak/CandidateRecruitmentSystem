@@ -60,7 +60,7 @@ class JobOfferController extends AbstractController
         }
 
         return $this->render('job_offer/index.html.twig', [
-            'offers' => $offers,
+            'pagination' => $offers,
             'searched' => $searched
         ]);
     }
