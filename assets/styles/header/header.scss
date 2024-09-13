@@ -1,0 +1,12 @@
+$headerPadding: 10rem;
+
+.header {
+  padding-left: $headerPadding;
+  padding-right: $headerPadding;
+  display: flex;
+}
+
+.header__login {
+  margin-left: auto;
+  text-align: right;
+}

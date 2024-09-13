@@ -1,0 +1,18 @@
+<header>
+    <div class="header pt-4 pb-4 shadow">
+        <div><a href="{{ path('homepage') }}"><h5>HOME</h5></a></div>
+        <div class="header__login">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <b>{{ user }}</b>  |
+                <a href="{{ path('app_logout') }}">
+                    Log out
+                </a>
+            {% else %}
+                <a href="{{ path('app_login') }}">
+                    Sign in
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<div class="header-overlay"></div>

@@ -15,6 +15,7 @@
         {% endblock %}
     </head>
     <body>
+        {{ render(controller('App\\Controller\\MainController::header')) }}
         {% block body %}{% endblock %}
     </body>
 </html>
