@@ -8,8 +8,7 @@ export default class extends Controller {
 
     submit(e) {
         e.preventDefault();
-        let input = 'Java';
-
-        location.href = Routing.generate('search') + "?q=" + input;
+        let searchString = document.getElementById('search-input').value;
+        location.href = Routing.generate('search') + "?q=" + searchString;
     }
 }
