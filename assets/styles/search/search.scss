@@ -10,3 +10,14 @@ $searchPadding: 1rem;
   padding-top: $mainPadding;
   padding-bottom: $mainPadding;
 }
+
+.sorryInfo {
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  min-width: 100%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}

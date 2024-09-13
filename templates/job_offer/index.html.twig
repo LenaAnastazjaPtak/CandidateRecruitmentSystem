@@ -4,7 +4,8 @@
 
 {% block body %}
     <div class="container wrapper">
-        <div class="mb-3"><h5>Welcome in our</h5> <h2>Candidate Recruitment System</h2></div>
+        <div class="mb-3"><h5>Welcome in our</h5>
+            <h2>Candidate Recruitment System</h2></div>
         {% set perPage = perPage is defined?perPage:'12' %}
         {{ include('search.html.twig') }}
         {% if offers| length > 0 %}
@@ -38,10 +39,14 @@
                 {% endfor %}
                 </tbody>
             </table>
+        {% else %}
+            <div class="sorryInfo">
+                Sorry, no offers matching your search...
+            </div>
         {% endif %}
         <div class="text-center list-options__pagination">
             {{ knp_pagination_render(offers) }}
         </div>
     </div>
-{#    <img src="{{ asset('images/tlo.jpg') }}" alt="X">#}
+    {#    <img src="{{ asset('images/tlo.jpg') }}" alt="X"> #}
 {% endblock %}
