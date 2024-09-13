@@ -8,6 +8,10 @@ homepage:
     path: /
     controller: App\Controller\JobOfferController::all
 
+admin:
+    path: /admin
+    controller: App\Controller\Admin\DashboardController::index
+
 search:
     path: /search
     controller: App\Controller\JobOfferController::search
@@ -17,7 +21,3 @@ search:
 apply_for_job:
     path: /apply/{offerId}
     controller: App\Controller\JobOfferController::apply
-
-admin:
-    path: /admin
-    controller: App\Controller\Admin\DashboardController::index

@@ -9,5 +9,17 @@
         <div class="mb-4">
             {{ offer.description }}
         </div>
+        <div>
+            {{ form_errors(candidateForm) }}
+
+            {{ form_start(candidateForm) }}
+            {{ form_row(candidateForm.email) }}
+            {{ form_row(candidateForm.name) }}
+            {{ form_row(candidateForm.lastname) }}
+            {{ form_row(candidateForm.phoneNumber) }}
+
+            <button type="submit" class="btn btn-success mt-3">Apply</button>
+            {{ form_end(candidateForm) }}
+        </div>
     </div>
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\JobOffer;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -33,6 +34,9 @@ class JobOfferController extends AbstractCrudController
             TextField::new('title'),
             TextareaField::new('description'),
             DateField::new('dateAdded')->hideOnForm(),
+            CollectionField::new('candidates')
+                ->allowAdd(false)
+                ->allowDelete(false)
         ];
     }
 }

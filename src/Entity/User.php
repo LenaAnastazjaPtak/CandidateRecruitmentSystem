@@ -45,14 +45,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $phoneNumber = null;
 
     /**
-     * @var Collection<int, JobOffer>
+     * @var Collection<int, Candidate>
      */
-    #[ORM\ManyToMany(targetEntity: JobOffer::class, mappedBy: 'candidates')]
-    private Collection $jobOffers;
+    #[ORM\OneToMany(targetEntity: Candidate::class, mappedBy: 'user')]
+    private Collection $candidates;
 
     public function __construct()
     {
-        $this->jobOffers = new ArrayCollection();
+        $this->candidates = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -172,27 +172,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, JobOffer>
+     * @return Collection<int, Candidate>
      */
-    public function getJobOffers(): Collection
+    public function getCandidates(): Collection
     {
-        return $this->jobOffers;
+        return $this->candidates;
     }
 
-    public function addJobOffer(JobOffer $jobOffer): static
+    public function addCandidate(Candidate $candidate): static
     {
-        if (!$this->jobOffers->contains($jobOffer)) {
-            $this->jobOffers->add($jobOffer);
-            $jobOffer->addCandidate($this);
+        if (!$this->candidates->contains($candidate)) {
+            $this->candidates->add($candidate);
+            $candidate->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeJobOffer(JobOffer $jobOffer): static
+    public function removeCandidate(Candidate $candidate): static
     {
-        if ($this->jobOffers->removeElement($jobOffer)) {
-            $jobOffer->removeCandidate($this);
+        if ($this->candidates->removeElement($candidate)) {
+            // set the owning side to null (unless already changed)
+            if ($candidate->getUser() === $this) {
+                $candidate->setUser(null);
+            }
         }
 
         return $this;

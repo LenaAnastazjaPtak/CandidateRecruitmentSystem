@@ -4,11 +4,11 @@
 
 {% block body %}
     <div class="container wrapper">
-        <div class="mb-5"><h2>Candidate Recruitment System</h2></div>
+        <div class="mb-3"><h5>Welcome in our</h5> <h2>Candidate Recruitment System</h2></div>
         {% set perPage = perPage is defined?perPage:'12' %}
         {{ include('search.html.twig') }}
         {% if offers| length > 0 %}
-            <table class="table table-hover">
+            <table class="table table-hover mt-3 mb-4">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -42,6 +42,6 @@
         <div class="text-center list-options__pagination">
             {{ knp_pagination_render(offers) }}
         </div>
-        {#        <img src="{{ asset('images/people.jpg') }}" alt="X"> #}
     </div>
+{#    <img src="{{ asset('images/tlo.jpg') }}" alt="X">#}
 {% endblock %}

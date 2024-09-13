@@ -27,9 +27,9 @@ class JobOffer
     private ?\DateTimeInterface $dateAdded = null;
 
     /**
-     * @var Collection<int, User>
+     * @var Collection<int, Candidate>
      */
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'jobOffers')]
+    #[ORM\ManyToMany(targetEntity: Candidate::class, mappedBy: 'offers')]
     private Collection $candidates;
 
     public function __construct()
@@ -84,27 +84,30 @@ class JobOffer
         return $this;
     }
 
-    /**
-     * @return Collection<int, User>
-     */
-    public function getCandidates(): Collection
-    {
-        return $this->candidates;
+/**
+ * @return Collection<int, Candidate>
+ */
+public function getCandidates(): Collection
+{
+    return $this->candidates;
+}
+
+public function addCandidate(Candidate $candidate): static
+{
+    if (!$this->candidates->contains($candidate)) {
+        $this->candidates->add($candidate);
+        $candidate->addOffer($this);
     }
 
-    public function addCandidate(User $candidate): static
-    {
-        if (!$this->candidates->contains($candidate)) {
-            $this->candidates->add($candidate);
-        }
+    return $this;
+}
 
-        return $this;
+public function removeCandidate(Candidate $candidate): static
+{
+    if ($this->candidates->removeElement($candidate)) {
+        $candidate->removeOffer($this);
     }
 
-    public function removeCandidate(User $candidate): static
-    {
-        $this->candidates->removeElement($candidate);
-
-        return $this;
-    }
+    return $this;
+}
 }

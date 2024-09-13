@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Candidate;
 use App\Entity\JobOffer;
+use App\Form\CandidateFormType;
 use App\Repository\JobOfferRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Elastica\Query;
@@ -99,12 +101,48 @@ class JobOfferController extends AbstractController
         );
     }
 
-    public function apply(EntityManagerInterface $em, int $offerId): Response
+    public function apply(
+        int                         $offerId,
+        Request                     $request,
+        EntityManagerInterface      $entityManager
+    ): Response
     {
-        $offer = $em->getRepository(JobOffer::class)->find($offerId);
+        $offer = $entityManager->getRepository(JobOffer::class)->find($offerId);
+
+        $form = $this->createForm(CandidateFormType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $name = $form->get('name')->getData();
+            $lastname = $form->get('lastname')->getData();
+            $email = $form->get('email')->getData();
+            $phoneNumber = $form->get('phoneNumber')->getData();
+            $candidate = $entityManager->getRepository(Candidate::class)->findOneBy([
+                'name' => $name,
+                'lastname' => $lastname,
+                'email' => $email,
+                'phoneNumber' => $phoneNumber,
+            ]);
+
+            if (!$candidate) {
+                $candidate = new Candidate();
+            }
+
+            $candidate->setName($name);
+            $candidate->setLastname($lastname);
+            $candidate->setEmail($email);
+            $candidate->setPhoneNumber($phoneNumber);
+            $candidate->addOffer($offer);
+            $candidate->setUser($this->getUser());
+            $entityManager->persist($candidate);
+            $entityManager->flush();
+
+            return $this->render('job_offer/success.html.twig');
+        }
 
         return $this->render('job_offer/apply.html.twig', [
             'offer' => $offer,
+            'candidateForm' => $form,
         ]);
     }
 }

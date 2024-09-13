@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Candidate;
 use App\Entity\JobOffer;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -27,6 +28,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Job Offers', 'fas fa-stream', JobOffer::class);
         yield MenuItem::linkToCrud('Users', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('Candidates', 'fas fa-users', Candidate::class);
         yield MenuItem::linktoRoute('Homepage', 'fa fa-arrow-left', 'homepage');
         yield MenuItem::linkToLogout('Logout', "fa fa-sign-out");
     }

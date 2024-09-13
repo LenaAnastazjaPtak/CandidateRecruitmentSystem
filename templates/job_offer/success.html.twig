@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Success!{% endblock %}
+
+{% block body %}
+    <div class="container wrapper">
+        <div class="mb-4">
+            <h1>
+                Congratulations, your application has been sent!
+            </h1>
+        </div>
+        <div>
+            <a href="{{ path('homepage') }}">
+                <button class="btn btn-lg btn-primary">
+                    See other offers
+                </button>
+            </a>
+        </div>
+    </div>
+{% endblock %}
