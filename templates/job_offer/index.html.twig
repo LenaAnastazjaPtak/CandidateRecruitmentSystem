@@ -8,7 +8,7 @@
             <h2>Candidate Recruitment System</h2></div>
         {% set perPage = perPage is defined?perPage:'12' %}
         {{ include('search.html.twig') }}
-        {% if offers| length > 0 %}
+        {% if pagination.items| length > 0 %}
             <table class="table table-hover mt-3 mb-4">
                 <thead>
                 <tr>
@@ -19,7 +19,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for offer in offers %}
+                {% for offer in pagination.items %}
                     <tr>
                         <th scope="row">
                             {{ loop.index }}
@@ -44,8 +44,8 @@
                 Sorry, no offers matching your search...
             </div>
         {% endif %}
-        <div class="text-center list-options__pagination">
-            {{ knp_pagination_render(offers) }}
+        <div class="text-center list-options__pagination" {{ stimulus_controller('pagination') }}>
+            {{ knp_pagination_render(pagination, 'job_offer/pagination.html.twig') }}
         </div>
     </div>
     {#    <img src="{{ asset('images/tlo.jpg') }}" alt="X"> #}

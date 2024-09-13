@@ -28,7 +28,7 @@ class JobOfferController extends AbstractController
     ): Response
     {
 
-        $offers =
+        $pagination =
             $paginator->paginate(
                 $jobOfferRepository->paginator(),
                 $request->query->getInt('page', $request->query->getInt('page', 1)),
@@ -36,7 +36,7 @@ class JobOfferController extends AbstractController
             );
 
         return $this->render('job_offer/index.html.twig', [
-            'offers' => $offers,
+            'pagination' => $pagination,
         ]);
     }
 
