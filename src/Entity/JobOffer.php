@@ -32,10 +32,13 @@ class JobOffer
     #[ORM\ManyToMany(targetEntity: Candidate::class, mappedBy: 'offers')]
     private Collection $candidates;
 
-    public function __construct()
+    public function __construct($title = null, $description = null, $dateAdded = null)
     {
         $this->candidates = new ArrayCollection();
         $this->dateAdded = new DateTime();
+        if ($title) $this->title = $title;
+        if ($description) $this->description = $description;
+        if ($dateAdded) $this->dateAdded = $dateAdded;
     }
 
     public function __toString(): string
@@ -84,30 +87,30 @@ class JobOffer
         return $this;
     }
 
-/**
- * @return Collection<int, Candidate>
- */
-public function getCandidates(): Collection
-{
-    return $this->candidates;
-}
-
-public function addCandidate(Candidate $candidate): static
-{
-    if (!$this->candidates->contains($candidate)) {
-        $this->candidates->add($candidate);
-        $candidate->addOffer($this);
+    /**
+     * @return Collection<int, Candidate>
+     */
+    public function getCandidates(): Collection
+    {
+        return $this->candidates;
     }
 
-    return $this;
-}
+    public function addCandidate(Candidate $candidate): static
+    {
+        if (!$this->candidates->contains($candidate)) {
+            $this->candidates->add($candidate);
+            $candidate->addOffer($this);
+        }
 
-public function removeCandidate(Candidate $candidate): static
-{
-    if ($this->candidates->removeElement($candidate)) {
-        $candidate->removeOffer($this);
+        return $this;
     }
 
-    return $this;
-}
+    public function removeCandidate(Candidate $candidate): static
+    {
+        if ($this->candidates->removeElement($candidate)) {
+            $candidate->removeOffer($this);
+        }
+
+        return $this;
+    }
 }

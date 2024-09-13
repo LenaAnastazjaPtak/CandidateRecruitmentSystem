@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class JobOfferController extends AbstractController
 {
-    private static int $PER_PAGE = 2;
+    private static int $PER_PAGE = 8;
 
     public function all(
         Request            $request,
